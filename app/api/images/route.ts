@@ -2,7 +2,7 @@
 import { NextResponse } from "next/server";
 import type { ImagesResponse } from "@/types/image.types";
 
-const baseUrl = process.env.HOSTINGER_IMAGES_URL;
+const baseUrl = process.env.PERFUME_IMAGES_URL;
 
 export async function GET() {
   try {
