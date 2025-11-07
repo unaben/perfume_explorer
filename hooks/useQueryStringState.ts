@@ -2,8 +2,8 @@ import { useCallback, useState } from "react";
 import getInitialStateFromUrl from "../utils/getInitialStateFromUrl";
 
 /**
- * A custom hook to manage a state (an array of strings) that is synchronized
- * with a URL query parameter for bookmarking.
+ * A custom hook to manage a state (an array of strings) 
+ * that is synchronized with a URL query parameter for bookmarking.
  */
 const useQueryStringState = (paramName: string): [string[], (newValues: string[]) => void] => {
   const [selectedValues, internalSetSelectedValues] = useState<string[]>(
