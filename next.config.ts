@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'perfumexplorer.bellefriends.com',
+        hostname: process.env.NEXT_PUBLIC_PERFUME_DOMAIN,
         port: '',
         pathname: '/images/**',
       },
