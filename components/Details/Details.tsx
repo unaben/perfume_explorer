@@ -5,9 +5,11 @@ import cn from "classnames";
 import useFetchApiData from "../../hooks/useFetchApiData";
 import Image from "next/image";
 import styles from "./Details.module.css";
+import { useState } from "react";
 
 const Details = (props: IDetailsProps) => {
   const { perfumeCode } = props;
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const { data: perfumeImageMap } =
     useFetchApiData<PerfumeImage>("/api/images");
@@ -24,14 +26,16 @@ const Details = (props: IDetailsProps) => {
           <div
             className={cn(styles.imageContent, {
               [styles.placeholderImage]: imageType === "placeholder",
+              [styles.loaded]: imageLoaded,
             })}
           >
             <Image
               className={styles.img}
               src={imageUrl}
               alt={`image-code-${perfumeCode}`}
-              width={400}
-              height={400}
+              width={300}
+              height={300}
+              onLoad={() => setImageLoaded(true)}
             />
           </div>
         </div>
