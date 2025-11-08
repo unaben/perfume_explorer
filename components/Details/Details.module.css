@@ -1,5 +1,4 @@
 .container {
-  padding: .5rem 1rem 2rem;  
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -36,13 +35,17 @@
 
 .imageContent {
   width: 100%;
-  min-height: 300px;
+  max-width: 450px;
+  height: 350px;
   margin: 0 auto;
   position: relative;
   opacity: 0;
   transform: translateX(30px);
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .imageContent.loaded {
@@ -51,9 +54,11 @@
 }
 
 .img {
-  width: 100%;
-  display: inline-block;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 550px !important;
+  max-height: 350px !important;
+  object-fit: content;
   animation: fadeInScale 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
@@ -68,6 +73,13 @@
   }
 }
 
-.placeholderImage {
-  width: 100%;
+@media (max-width: 500px) {
+  .imageContent {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .img {
+    height: auto !important;
+  }
 }

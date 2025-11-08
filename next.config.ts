@@ -5,10 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: process.env.PERFUME_DOMAIN,
-        port: '',
-        pathname: '/images/**',
+        protocol: "https",
+        hostname: process.env.PERFUME_DOMAIN ?? "",
+        port: "",
+        pathname: "/images/**",
       },
     ],
   },

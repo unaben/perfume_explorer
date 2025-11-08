@@ -1,10 +1,10 @@
+import type { PerfumeGroup } from "@/types";
 import { NextResponse } from "next/server";
-import type { ImagesResponse } from "@/types/image.types";
 
 
 
 export async function GET() {
-  const apiUrl = process.env.PERFUME_IMAGES_URL ?? '';
+  const apiUrl = process.env.PERFUMES_DATA_URL ?? "";
   try {
     const response = await fetch(apiUrl, {
       // Cache for 5 minutes
@@ -15,7 +15,7 @@ export async function GET() {
       throw new Error(`Failed to fetch images: ${response.status}`);
     }
 
-    const data: ImagesResponse = await response.json();
+    const data: PerfumeGroup = await response.json();
 
     return NextResponse.json(data, {
       headers: {

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useMemo } from "react";
 import useFetchApiData from "../../hooks/useFetchApiData";
@@ -12,13 +12,11 @@ import PerfumeDisplay from "../PerfumeDisplay/PerfumeDisplay";
 import styles from "./MainDisplay.module.css";
 
 const MainDisplay = () => {
-  const { data: rawData } = useFetchApiData<Array<PerfumeGroup>>("/data.json");
+  const { data: rawData } = useFetchApiData<Array<PerfumeGroup>>('api/perfumes');
   const [selectedTypes, setSelectedTypes] = useQueryStringState("type");
   const [selectedCategories, setSelectedCategories] =
     useQueryStringState("category");
   const [selectedSizes, setSelectedSizes] = useQueryStringState("size");
-
-  
 
   const allTypes = useMemo(() => getOptions(rawData, "type"), [rawData]);
   const allCategories = useMemo(

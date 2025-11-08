@@ -1,11 +1,11 @@
 "use client";
 
-import type { IDetailsProps, PerfumeImage } from "./Details.types";
 import cn from "classnames";
-import useFetchApiData from "../../hooks/useFetchApiData";
 import Image from "next/image";
-import styles from "./Details.module.css";
 import { useState } from "react";
+import useFetchApiData from "../../hooks/useFetchApiData";
+import styles from "./Details.module.css";
+import type { IDetailsProps, PerfumeImage } from "./Details.types";
 
 const Details = (props: IDetailsProps) => {
   const { perfumeCode } = props;
@@ -25,7 +25,6 @@ const Details = (props: IDetailsProps) => {
         <div className={styles.container}>
           <div
             className={cn(styles.imageContent, {
-              [styles.placeholderImage]: imageType === "placeholder",
               [styles.loaded]: imageLoaded,
             })}
           >
@@ -33,8 +32,8 @@ const Details = (props: IDetailsProps) => {
               className={styles.img}
               src={imageUrl}
               alt={`image-code-${perfumeCode}`}
-              width={300}
-              height={300}
+              width={550}
+              height={350}
               onLoad={() => setImageLoaded(true)}
             />
           </div>
